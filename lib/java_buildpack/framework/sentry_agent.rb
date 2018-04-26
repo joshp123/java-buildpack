@@ -39,8 +39,9 @@ module JavaBuildpack
       def compile
         sentry_agent_uri = 'https://github.com/getsentry/sentry-java/releases/download/v1.7.3/libsentry_agent_linux-x86_64.so'
         sentry_version = '1.7.3'
+        print('compile')
         download(sentry_version, sentry_agent_uri, 'sentry.so')
-        puts('hello')
+        print('hello')
         FileUtils.mv(download_location, @droplet.sandbox + 'sentry.so')
         puts('more')
         FileUtils.remove_dir(download_location, true)
