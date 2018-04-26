@@ -26,7 +26,6 @@ module JavaBuildpack
 
       # (see JavaBuildpack::Component::BaseComponent#detect)
       def detect
-          # print "#{@application.environment.key?('SENTRY_DSN')}"
           @application.environment.key?('SENTRY_DSN')
       end
 
@@ -43,7 +42,6 @@ module JavaBuildpack
       def release
         @droplet.java_opts
             .add_javaagent(@droplet.sandbox + 'sentry.so')
-          # .add_bootclasspath_p(@droplet.sandbox + jar_name)
       end
 
       protected
