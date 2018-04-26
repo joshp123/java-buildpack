@@ -39,7 +39,7 @@ module JavaBuildpack
       def compile
         sentry_agent_uri = 'https://github.com/getsentry/sentry-java/releases/download/v1.7.3/libsentry_agent_linux-x86_64.so'
         sentry_version = '1.7.3'
-        print('compile')
+        print('compilez')
         download(sentry_version, sentry_agent_uri) do | file |
             puts(file.path)
             print('hello')
