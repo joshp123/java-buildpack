@@ -22,7 +22,7 @@ module JavaBuildpack
   module Framework
 
     # Encapsulates the functionality for enabling zero-touch Sentry support.
-    class JrebelAgent < JavaBuildpack::Component::BaseComponent
+    class SentryAgent < JavaBuildpack::Component::BaseComponent
 
       # (see JavaBuildpack::Component::BaseComponent#compile)
       def compile
