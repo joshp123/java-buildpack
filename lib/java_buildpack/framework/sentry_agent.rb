@@ -42,7 +42,8 @@ module JavaBuildpack
         print('compile')
         download(sentry_version, sentry_agent_uri, 'sentry.so') do | file |
             puts(file.path)
-            print('hello')
+            puts('hello')
+            FileUtils.mkdir_p @droplet.sandbox
             FileUtils.mv(file.path, @droplet.sandbox + 'sentry.so')
         end
       end
