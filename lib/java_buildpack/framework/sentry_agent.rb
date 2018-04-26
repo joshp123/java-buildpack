@@ -44,6 +44,7 @@ module JavaBuildpack
             puts(file.path)
             print('hello')
             FileUtils.mv(file.path, @droplet.sandbox + 'sentry.so')
+        end
       end
 
       # (see JavaBuildpack::Component::BaseComponent#release)
