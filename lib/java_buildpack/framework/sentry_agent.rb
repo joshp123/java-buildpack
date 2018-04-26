@@ -24,6 +24,12 @@ module JavaBuildpack
     # Encapsulates the functionality for enabling zero-touch Sentry support.
     class SentryAgent < JavaBuildpack::Component::BaseComponent
 
+      def initialize(context, &version_validator)
+        super(context, &version_validator)
+        @component_name = 'Sentry Agent'
+      end
+
+
       # (see JavaBuildpack::Component::BaseComponent#detect)
       def detect
           @application.environment.key?('SENTRY_DSN')
@@ -34,8 +40,11 @@ module JavaBuildpack
         sentry_agent_uri = 'https://github.com/getsentry/sentry-java/releases/download/v1.7.3/libsentry_agent_linux-x86_64.so'
         sentry_version = '1.7.3'
         download(sentry_version, sentry_agent_uri, 'sentry.so')
+        puts('hello')
         FileUtils.mv(download_location, @droplet.sandbox + 'sentry.so')
+        puts('more')
         FileUtils.remove_dir(download_location, true)
+        puts('yes more')
       end
 
       # (see JavaBuildpack::Component::BaseComponent#release)
