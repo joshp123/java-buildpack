@@ -26,8 +26,8 @@ module JavaBuildpack
 
       # (see JavaBuildpack::Component::BaseComponent#detect)
       def detect
-          print "#{@application.environment.key?('SENTRY_DSN')}"
-          return @application.environment.key?('SENTRY_DSN')
+          # print "#{@application.environment.key?('SENTRY_DSN')}"
+          @application.environment.key?('SENTRY_DSN')
       end
 
       # (see JavaBuildpack::Component::BaseComponent#compile)
