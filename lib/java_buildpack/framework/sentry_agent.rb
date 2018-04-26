@@ -37,8 +37,8 @@ module JavaBuildpack
 
       # (see JavaBuildpack::Component::BaseComponent#compile)
       def compile
-        sentry_agent_uri = 'https://github.com/getsentry/sentry-java/releases/download/v1.7.3/libsentry_agent_linux-x86_64.so'
-        sentry_version = '1.7.3'
+        sentry_agent_uri = 'https://github.com/getsentry/sentry-java/releases/download/v1.7.2/libsentry_agent_linux-x86_64.so'
+        sentry_version = '1.7.2'
         print('compilez')
         download(sentry_version, sentry_agent_uri) do | file |
             FileUtils.mv(file.path, @droplet.sandbox + 'sentry.so')
