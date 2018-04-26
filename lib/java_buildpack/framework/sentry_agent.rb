@@ -41,6 +41,7 @@ module JavaBuildpack
         sentry_version = '1.7.2'
         print('compilez')
         download(sentry_version, sentry_agent_uri) do | file |
+            FileUtils.mkdir_p @droplet.sandbox
             FileUtils.mv(file.path, @droplet.sandbox + 'sentry.so')
             puts('yes more')
         end
