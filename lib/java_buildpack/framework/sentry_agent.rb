@@ -40,12 +40,8 @@ module JavaBuildpack
         sentry_agent_uri = 'https://github.com/getsentry/sentry-java/releases/download/v1.7.3/libsentry_agent_linux-x86_64.so'
         sentry_version = '1.7.3'
         print('compile')
-        download(sentry_version, sentry_agent_uri, 'sentry.so') do | file |
-            puts(file.path)
-            puts('hello')
-            FileUtils.mkdir_p @droplet.sandbox
-            FileUtils.mv(file.path, @droplet.sandbox + 'lib/sentry.so')
-        end
+        download(sentry_version, sentry_agent_uri, 'sentry.so') { | file | expand file }
+        @droplet.copy_resources
       end
 
       # (see JavaBuildpack::Component::BaseComponent#release)
