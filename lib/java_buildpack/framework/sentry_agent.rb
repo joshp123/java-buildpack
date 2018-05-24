@@ -49,8 +49,8 @@ module JavaBuildpack
 
       # (see JavaBuildpack::Component::BaseComponent#release)
       def release
-          return true
-        # @droplet.java_opts.add_javaagent(@droplet.sandbox + 'sentry.so')
+        #   return true
+        @droplet.java_opts.add_agentpath(@droplet.sandbox + 'sentry.so')
       end
 
       protected
