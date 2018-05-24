@@ -42,7 +42,7 @@ module JavaBuildpack
         print('compilez')
         download(sentry_version, sentry_agent_uri) do | file |
             FileUtils.mkdir_p @droplet.sandbox
-            FileUtils.mv(file.path, @droplet.sandbox + 'sentry.so')
+            FileUtils.cp(file.path, @droplet.sandbox + 'sentry.so')
             puts('yes more')
         end
       end
@@ -50,7 +50,7 @@ module JavaBuildpack
       # (see JavaBuildpack::Component::BaseComponent#release)
       def release
         @droplet.java_opts
-            .add_javaagent(@droplet.sandbox + 'sentry_agent/sentry.so')
+            .add_javaagent(@droplet.sandbox + 'sentry.so')
       end
 
       protected
